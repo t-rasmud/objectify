@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Map;
 
+import org.checkerframework.checker.determinism.qual.*;
 
 /**
  * Implementation of the Put interface.
@@ -38,7 +39,7 @@ public class SaverImpl implements Saver
 			private static final long serialVersionUID = 1L;
 
 			@Override
-			protected Key<E> wrap(Map<Key<E>, E> base) {
+			protected @Det Key<E> wrap(Map<Key<E>, E> base) {
 				return base.keySet().iterator().next();
 			}
 		};
